@@ -9,11 +9,11 @@ class InitiativesController < ApplicationController
 
   def create
     @initiative = Initiative.new initiative_params
-    # if @initiative.save
-    #   redirect_to :index
-    # else
-    #   render :new
-    # end
+    if @initiative.save
+      redirect_to initiatives_path
+    else
+      render :new
+    end
   end
 
   def edit

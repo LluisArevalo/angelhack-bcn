@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get '/' => 'site#index'
   
   scope '/admin' do
-    resources :actions
+    resources :initiatives
   end
 
-  get '/actions' => 'actions#users_index'
+  get '/initiatives' => 'initiatives#users_index'
 end
