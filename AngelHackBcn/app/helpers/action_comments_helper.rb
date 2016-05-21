@@ -1,0 +1,2 @@
+module ActionCommentsHelper
+end

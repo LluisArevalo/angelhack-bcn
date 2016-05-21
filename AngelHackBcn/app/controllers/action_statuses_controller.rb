@@ -1,0 +1,2 @@
+class ActionStatusesController < ApplicationController
+end
