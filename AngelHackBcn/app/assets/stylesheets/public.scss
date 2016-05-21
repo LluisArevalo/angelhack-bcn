@@ -1,12 +1,34 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
 $color-primary: #44AF69;
 $color-secondary: #E83F6F;
 $color-text: #333;
 $color-background: #fff;
+$font-family: 'Open Sans';
+$font-weight: 300;
 
 body {
   background: $color-primary;
+  font-family: $font-family;
+  font-weight: $font-weight;
 
-  a{
-    color: $color-background;
+  .picture {
+    background: $color-primary;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .content {
+    background: $color-background;
+    box-sizing: border-box;
+    padding: 50px;
+    width: 100%;
+  }
+
+  .footer {
+    background: $color-secondary;
+    box-sizing: border-box;
+    padding: 30px;
+    width: 100%;
   }
 }
