@@ -2,7 +2,7 @@
   <%= f.text_field :title %>
   <%= f.text_field :content %>
 
-  <%= collection_select(:initiatives, :topic_id, Topic.all, :id, :description) %>
+  <%= collection_select(:initiatives, :topic_id, Topic.all, :id, :description, {:prompt => @initiative.topic.description || " "}) %>
 
   <%= f.submit 'Create Initiative' %>
 <% end %>

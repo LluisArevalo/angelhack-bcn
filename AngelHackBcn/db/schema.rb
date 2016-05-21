@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521172200) do
+ActiveRecord::Schema.define(version: 20160521204752) do
 
   create_table "initiative_comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,7 +44,12 @@ ActiveRecord::Schema.define(version: 20160521172200) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "topic_id"
+    t.integer  "region_id"
   end
+
+  add_index "initiatives", ["region_id"], name: "index_initiatives_on_region_id"
+  add_index "initiatives", ["topic_id"], name: "index_initiatives_on_topic_id"
 
   create_table "priorities", force: :cascade do |t|
     t.string   "level"
