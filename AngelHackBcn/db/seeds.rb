@@ -6,3 +6,93 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#Users
+user = User.new
+user.email = "paco@perez.com"
+user.password = '1234567890'
+user.save
+
+user = User.new
+user.email = "josefina@lopez.com"
+user.password = '1234567890'
+user.save
+
+user = User.new
+user.email = "sara@garcia.com"
+user.password = '1234567890'
+user.save
+
+user = User.new
+user.email = "marta@fonda.com"
+user.password = '1234567890'
+user.save
+
+user = User.new
+user.email = "lluis@albert.com"
+user.password = '1234567890'
+user.save
+
+user = User.new
+user.email = "raul@vega.com"
+user.password = '1234567890'
+user.save
+
+#Priorities
+priority = Priority.new
+priority.level = "High"
+priority.save
+
+priority = Priority.new
+priority.level = "Medium"
+priority.save
+
+priority = Priority.new
+priority.level = "Low"
+priority.save
+
+#Regions
+
+region = Region.new
+region.ambit = "District"
+region.area = "La Latina"
+region.save
+
+region = Region.new
+region.ambit = "City"
+region.area = "Madrid"
+region.save
+
+region = Region.new
+region.ambit = "Country"
+region.area = "Spain"
+region.save
+
+region = Region.new
+region.ambit = "City"
+region.area = "Barcelona"
+region.save
+
+region = Region.new
+region.ambit = "District"
+region.area = "Poble Nou"
+region.save
+
+#Topics
+
+topic = Topic.new
+topic.description = "Health"
+topic.save
+
+topic = Topic.new
+topic.description = "Education"
+topic.save
+
+topic = Topic.new
+topic.description = "Civil Rights"
+topic.save
+
+topic = Topic.new
+topic.description = "Finance"
+topic.save
+
+#Initiative

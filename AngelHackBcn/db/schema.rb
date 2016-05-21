@@ -11,31 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521143115) do
+ActiveRecord::Schema.define(version: 20160521172200) do
 
-  create_table "action_comments", force: :cascade do |t|
+  create_table "initiative_comments", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "action_id"
+    t.integer  "initiative_id"
     t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "action_comments", ["action_id"], name: "index_action_comments_on_action_id"
-  add_index "action_comments", ["user_id"], name: "index_action_comments_on_user_id"
+  add_index "initiative_comments", ["initiative_id"], name: "index_initiative_comments_on_initiative_id"
+  add_index "initiative_comments", ["user_id"], name: "index_initiative_comments_on_user_id"
 
-  create_table "action_statuses", force: :cascade do |t|
+  create_table "initiative_statuses", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "action_id"
+    t.integer  "initiative_id"
     t.boolean  "solved"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "action_statuses", ["action_id"], name: "index_action_statuses_on_action_id"
-  add_index "action_statuses", ["user_id"], name: "index_action_statuses_on_user_id"
+  add_index "initiative_statuses", ["initiative_id"], name: "index_initiative_statuses_on_initiative_id"
+  add_index "initiative_statuses", ["user_id"], name: "index_initiative_statuses_on_user_id"
 
-  create_table "actions", force: :cascade do |t|
+  create_table "initiatives", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at",         null: false
@@ -55,12 +55,12 @@ ActiveRecord::Schema.define(version: 20160521143115) do
   create_table "priority_assignations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "priority_id"
-    t.integer  "action_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "initiative_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "priority_assignations", ["action_id"], name: "index_priority_assignations_on_action_id"
+  add_index "priority_assignations", ["initiative_id"], name: "index_priority_assignations_on_initiative_id"
   add_index "priority_assignations", ["priority_id"], name: "index_priority_assignations_on_priority_id"
   add_index "priority_assignations", ["user_id"], name: "index_priority_assignations_on_user_id"
 
@@ -94,4 +94,5 @@ ActiveRecord::Schema.define(version: 20160521143115) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
 end
