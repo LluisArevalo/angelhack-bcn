@@ -20,11 +20,12 @@ class InitiativesController < ApplicationController
     @initiative = Initiative.find params[:id]
   end
 
+  def users_index
+    @initiatives = Initiative.all
+  end
+
   private
   def initiative_params
     params.require(:initiative).permit(:title, :content)
-  end
-  def users_index
-    @initiatives = Initiative.all
   end
 end
