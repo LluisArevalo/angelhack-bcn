@@ -1,0 +1,2 @@
+class InitiativeStatusesController < ApplicationController
+end

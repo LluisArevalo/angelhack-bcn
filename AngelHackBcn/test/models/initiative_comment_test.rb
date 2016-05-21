@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ActionStatusTest < ActiveSupport::TestCase
+class InitiativeCommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
