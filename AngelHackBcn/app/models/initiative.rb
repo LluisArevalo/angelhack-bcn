@@ -5,4 +5,12 @@ class Initiative < ActiveRecord::Base
   belongs_to :priority_assignment
   has_many :initiative_comments
   has_many :initiative_statuses
+
+  def actual_topic
+    self.topic ?  self.topic.description : " "
+  end
+
+  def actual_region
+    self.region ?  self.region.ambit : " "
+  end
 end
