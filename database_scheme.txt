@@ -1,0 +1,29 @@
+Action
+> Title varchar
+> Content text
+> Image paperclip
+
+Region (Region, State, City, etc.)
+> Description varchar
+
+Priority (High, Medium, Low)
+> Description varchar
+
+Topic (Environment, Healthy, etc.)
+> Description varchar
+
+User
+> Devise fields
+
+UserRole
+> Kan Kan || Rolify
+
+ActionStatus
+> IdUser int
+> IdAction int
+> Solved bool
+
+ActionComment
+> IdUser int
+> IdAction int
+> Comment text
