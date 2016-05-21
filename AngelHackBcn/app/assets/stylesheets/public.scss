@@ -126,19 +126,24 @@ body {
     }
 
     .icon {
-      width: 35%;
+      width: 140px;
 
       &.left {
-        margin-right: 5%;
+        margin-right: 40px;
       }
 
       &.right {
-        margin-left: 5%;
+        margin-left: 40px;
+        margin-top: 20px;
       }
     }
 
     .description {
-      width: 60%;
+      width: calc(100% - 180px);
+
+      &.first {
+        margin-bottom: 40px;
+      }
     }
   }
 

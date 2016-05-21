@@ -1,0 +1,9 @@
+<ul>
+  <% @initiatives.each do |initiative| %>
+    <li>
+      <%= "#{initiative.id} - #{initiative.title}" %>
+      <%= link_to 'Edit', edit_initiative_path(initiative) %>
+      <%= link_to 'Delete', initiative_path(initiative), method: :delete %>
+    </li>
+  <% end %>
+</ul>

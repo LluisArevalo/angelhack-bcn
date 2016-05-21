@@ -1,0 +1,12 @@
+<%= form_for @initiative do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :content %>
+
+  <%= collection_select(:initiative, :topic_id, Topic.all, :id, :description, {:prompt => @initiative.actual_topic, :disabled => @initiative.actual_topic}) %>
+
+  <%= collection_select(:initiative, :region_id, Region.all, :id, :ambit, {:prompt => @initiative.actual_region, :disabled => @initiative.actual_region}) %>
+
+  <%= text_field_tag :area, @initiative.region ? @initiative.region.area : " " %>
+
+  <%= f.submit 'Save' %>
+<% end %>

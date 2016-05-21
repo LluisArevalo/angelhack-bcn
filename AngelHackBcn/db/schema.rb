@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521193313) do
+ActiveRecord::Schema.define(version: 20160521204752) do
+
+  create_table "action_comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "action_id"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "action_comments", ["action_id"], name: "index_action_comments_on_action_id"
+  add_index "action_comments", ["user_id"], name: "index_action_comments_on_user_id"
+
+  create_table "action_statuses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "action_id"
+    t.boolean  "solved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "action_statuses", ["action_id"], name: "index_action_statuses_on_action_id"
+  add_index "action_statuses", ["user_id"], name: "index_action_statuses_on_user_id"
+
+  create_table "actions", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "initiative_comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,6 +79,9 @@ ActiveRecord::Schema.define(version: 20160521193313) do
     t.integer  "region_id"
   end
 
+  add_index "initiatives", ["region_id"], name: "index_initiatives_on_region_id"
+  add_index "initiatives", ["topic_id"], name: "index_initiatives_on_topic_id"
+
   create_table "priorities", force: :cascade do |t|
     t.string   "level"
     t.datetime "created_at", null: false
@@ -57,12 +91,12 @@ ActiveRecord::Schema.define(version: 20160521193313) do
   create_table "priority_assignations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "priority_id"
-    t.integer  "initiative_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "action_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "priority_assignations", ["initiative_id"], name: "index_priority_assignations_on_initiative_id"
+  add_index "priority_assignations", ["action_id"], name: "index_priority_assignations_on_action_id"
   add_index "priority_assignations", ["priority_id"], name: "index_priority_assignations_on_priority_id"
   add_index "priority_assignations", ["user_id"], name: "index_priority_assignations_on_user_id"
 
