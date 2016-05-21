@@ -1,0 +1,2 @@
+module InitiativeCommentsHelper
+end

@@ -1,0 +1,2 @@
+class InitiativeCommentsController < ApplicationController
+end

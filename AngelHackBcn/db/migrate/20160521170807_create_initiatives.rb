@@ -1,6 +1,6 @@
-class CreateActions < ActiveRecord::Migration
+class CreateInitiatives < ActiveRecord::Migration
   def change
-    create_table :actions do |t|
+    create_table :initiatives do |t|
       t.string :title
       t.text :content
 
