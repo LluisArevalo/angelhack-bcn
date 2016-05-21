@@ -1,3 +1,3 @@
 class Region < ActiveRecord::Base
-  belongs_to :initiative
+  has_many :initiatives
 end

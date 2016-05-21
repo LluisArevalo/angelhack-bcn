@@ -1,3 +1,3 @@
 class Topic < ActiveRecord::Base
-  belongs_to :initiative
+  has_many :initiatives
 end
