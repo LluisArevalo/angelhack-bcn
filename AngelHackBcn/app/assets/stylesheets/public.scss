@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:400,700);
 
+// Variables
 $color-primary: #44AF69;
+$color-primary-hover: #3F905B;
 $color-secondary: #E83F6F;
 $color-text: #333;
 $color-background: #fff;
@@ -8,10 +11,81 @@ $color-white: #fff;
 $font-family: 'Open Sans';
 $font-weight: 300;
 
+// Modules
+%transition {
+  transition: .3s linear all;
+}
+
 body {
   background: $color-background;
   font-family: $font-family;
   font-weight: $font-weight;
+
+  h1 {
+    color: $color-white;
+    font-family: 'Oleo Script Swash Caps';
+    font-size: 100px;
+    font-weight: 400;
+    text-shadow: 2px 2px 10px $color-text;
+    margin: 0 auto;
+    width: 70%;
+
+    .what-doing {
+      color: $color-secondary;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  .button-container {
+    text-align: center;
+
+    .button {
+      @extend %transition;
+      background: $color-primary;
+      border: 1px solid $color-primary;
+      box-shadow: 1px 1px 10px #999;
+      color: $color-white;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 300;
+      margin: 0 auto;
+      padding: 10px 45px;
+      text-transform: uppercase;
+
+      &:hover {
+        @extend %transition;
+        background: $color-primary-hover;
+      }
+    }
+  }
+
+  .content {
+    background: $color-background;
+    box-sizing: border-box;
+    padding: 45px 0;
+    width: 100%;
+
+    .container {
+      margin: 0 auto;
+      width: 90%;
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      article {
+        letter-spacing: 0.5px;
+        line-height: 22px;
+        margin: 0 0 45px;
+      }
+    }
+  }
 
   .picture {
     background: url(background.jpg);
@@ -20,32 +94,70 @@ body {
     width: 100%;
 
     .cover {
-      background: rgba(68, 175, 105, 0.5);
+      background: rgba(68, 175, 105, 0.75);
       height: 100%;
-      padding-top: 25vh;
+      padding-top: 30vh;
       text-align: center;
       width: 100%;
+    }
 
-      h1 {
-        color: $color-white;
-        font-size: 65px;
-        font-weight: 700;
-        text-shadow: 2px 2px 10px $color-text;
+    .go-down {
+      bottom: 0;
+      color: $color-white;
+      display: inline-block;
+      left: calc(50% - 40px);
+      position: absolute;
+      text-decoration: none;
+
+      img {
+        width: 80px;
       }
     }
   }
 
-  .content {
-    background: $color-background;
-    box-sizing: border-box;
-    padding: 50px;
-    width: 100%;
+  #more-info {
+    padding: 10px 0 45px;
   }
 
-  .footer {
-    background: $color-secondary;
+  .info {
+    .icon,
+    .description {
+      float: left;
+    }
+
+    .icon {
+      width: 35%;
+
+      &.left {
+        margin-right: 5%;
+      }
+
+      &.right {
+        margin-left: 5%;
+      }
+    }
+
+    .description {
+      width: 60%;
+    }
+  }
+
+  .bottom-section {
+    background: #f9f9f9;
     box-sizing: border-box;
-    padding: 30px;
-    width: 100%;
+    padding: 45px 0;
+
+    h2 {
+      color: $color-secondary;
+    }
+
+    .col-sm-4 {
+      float: left;
+      width: 30%;
+
+      &.middle {
+        margin: 0 5%;
+      }
+    }
   }
 }
