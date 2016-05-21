@@ -1,0 +1,20 @@
+<style>
+  header{
+
+  }
+</style>
+<header>
+  Header
+</header>
+<section>
+<% @actions.each do |action| %>
+      <%= action.id %>
+      <%= action.title %>
+      <%= action.content %>
+      <%= action.image_file_name %>
+      <%= action.image_content_type %>
+  <% end %>
+</section>
+<footer>
+  Footer
+</footer>
