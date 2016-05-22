@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160522081156) do
-
 
   create_table "action_comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -93,12 +91,12 @@ ActiveRecord::Schema.define(version: 20160522081156) do
   create_table "priority_assignations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "priority_id"
-    t.integer  "action_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "initiative_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "priority_assignations", ["action_id"], name: "index_priority_assignations_on_action_id"
+  add_index "priority_assignations", ["initiative_id"], name: "index_priority_assignations_on_initiative_id"
   add_index "priority_assignations", ["priority_id"], name: "index_priority_assignations_on_priority_id"
   add_index "priority_assignations", ["user_id"], name: "index_priority_assignations_on_user_id"
 
