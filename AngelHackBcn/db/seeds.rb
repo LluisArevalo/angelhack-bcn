@@ -113,7 +113,7 @@ initiative = Initiative.new
 initiative.title = "Renewable energy"
 initiative.content = "Invest in cleaner renewable energy and fund research and development"
 initiative.topic_id = 4
-initiative.region_id = 0
+initiative.region_id = 1
 initiative.save
 
 initiative = Initiative.new
