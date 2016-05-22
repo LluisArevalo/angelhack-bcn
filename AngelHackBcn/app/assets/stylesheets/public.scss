@@ -11,6 +11,7 @@ $color-text: #333;
 $color-background: #fff;
 $color-white: #fff;
 $font-family: 'Open Sans';
+$font-family-secondary: 'Oleo Script Swash Caps';
 $font-weight: 300;
 
 // Modules
@@ -390,8 +391,10 @@ body {
         padding: 2%;
         text-align: justify;
         h3{
-          font-weight: bold;
+          font-weight: 400;
+          font-size: 32px;
           margin-bottom: 10px;
+          font-family: $font-family-secondary;
         }
         .social-media{
           text-align: center;
