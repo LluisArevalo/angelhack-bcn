@@ -70,16 +70,26 @@ var initiatives = (function(){
   var urlPriority = '/vote_priority';
   var urlStatus = '/vote_status';
 
-  var votePriority = function(){
+  var init = function(){
+    $('.js-priority-tabs').find('div').on('click', function(){
+      var initiativeId = $('#js-initiative-id').val();
+      var priorityId = $(this).data('priority-id');
+      var userId = $('#js-user-id').val();
+
+      votePriority(initiativeId, priorityId, userId);
+    });
+  }
+
+  var votePriority = function(initiativeId, priorityId, userId){
     $.ajax({
-      url: url + '3' + urlPriority,
+      url: url + initiativeId + urlPriority,
       method: 'POST',
       data: {
-        'user_id' : '6',
-        'priority_id' : '1'
+        'user_id' : userId,
+        'priority_id' : priorityId
       },
       success: function(){
-        console.log('oh yeah!');
+        $('');
       },
       error: function(){
         console.log('moooc, errooooor');
@@ -105,6 +115,7 @@ var initiatives = (function(){
   }
 
   return {
+    'init' : init,
     'votePriority' : votePriority,
     'voteStatus' : voteStatus
   }
@@ -116,5 +127,7 @@ $(document).on('ready', function(){
     setTimeout(function(){
       init.addHeaderMessage();
     }, 500);
+  } else if ($('#initiative-information').length > 0){
+    initiatives.init();
   }
 });
