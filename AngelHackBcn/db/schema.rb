@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160522081156) do
     t.datetime "image_updated_at"
   end
 
+>>>>>>> 1124c3b69d0358e82b6c07f94e95b8a433e5325d
   create_table "initiative_comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "initiative_id"
