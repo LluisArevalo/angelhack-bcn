@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   get '/initiatives' => 'initiatives#users_index'
+  post '/initiatives/:id/vote_status' => 'initiative_statuses#create'
 end
