@@ -225,7 +225,11 @@ body {
     height: 600px !important;
 
   }
-
+  .initiative{
+    .initiative-container{
+      cursor: default !important;
+    }
+  }
   .initiatives-container,.initiative{
     overflow: hidden;
     background-color: white;
@@ -332,7 +336,7 @@ body {
   }
   .initiative-info-vote{
     padding: 10px;
-    background-color: white;
+    background-color: #D1D1D1;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -380,13 +384,20 @@ body {
       bottom: 0;
       margin-right: 20px;
       float: left;
-      color: #44AF69;
+      color: #D1D1D1;
       background: transparent ;
-      border: 3px solid #44AF69;
+      border: 3px solid #D1D1D1;
       border-radius: 5px;
       padding: 10px;
       cursor: pointer;
       font-size: 1em;
+    }
+    .active{
+
+        @extend %transition;
+        border: 3px solid #44AF69;
+        color: #44AF69;
+
     }
   }
   .js-priority-tabs{
@@ -399,6 +410,15 @@ body {
     margin-right: 20px;
     div{
       float: right;
+      .initiative-info-vote{
+        cursor: pointer;
+      }
+    }
+    .active{
+      div{
+        @extend %transition;
+        background-color: #44AF69;
+      }
     }
 
   }
@@ -452,7 +472,7 @@ body {
         .social-media{
           text-align: center;
           margin-top: 20px;
-          
+
           li{
             @extend %transition;
             display: inline-block;
