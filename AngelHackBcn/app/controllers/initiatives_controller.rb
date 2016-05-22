@@ -4,6 +4,10 @@ class InitiativesController < ApplicationController
     @initiatives = Initiative.all
   end
 
+  def show
+    @initiative = Initiative.find params[:id]
+  end
+
   def new
     @initiative = Initiative.new
   end
@@ -41,6 +45,6 @@ class InitiativesController < ApplicationController
 
   private
   def initiative_params
-    params.require(:initiative).permit(:title, :content, :topic_id, :region_id)
+    params.require(:initiative).permit(:title, :content, :image, :topic_id, :region_id)
   end
 end

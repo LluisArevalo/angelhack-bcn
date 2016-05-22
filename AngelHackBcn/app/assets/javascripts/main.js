@@ -65,9 +65,56 @@ var init = (function(){
   }
 })();
 
+var initiatives = (function(){
+  var url = '/initiatives/';
+  var urlPriority = '/vote_priority';
+  var urlStatus = '/vote_status';
+
+  var votePriority = function(){
+    $.ajax({
+      url: url + '3' + urlPriority,
+      method: 'POST',
+      data: {
+        'user_id' : '6',
+        'priority_id' : '1'
+      },
+      success: function(){
+        console.log('oh yeah!');
+      },
+      error: function(){
+        console.log('moooc, errooooor');
+      }
+    });
+  }
+
+  var voteStatus = function(){
+    $.ajax({
+      url: url + '3' + urlStatus,
+      method: 'POST',
+      data: {
+        'user_id' : '6',
+        'solved' : true
+      },
+      success: function(){
+        console.log('suuuuuuuuu');
+      },
+      error: function(){
+        console.log('ja jaaaaaa');
+      }
+    });
+  }
+
+  return {
+    'votePriority' : votePriority,
+    'voteStatus' : voteStatus
+  }
+})();
+
 $(document).on('ready', function(){
-  init.headerLinkClick();
-  setTimeout(function(){
-    init.addHeaderMessage();
-  }, 500);
+  if($('#home-page').length > 0) {
+    init.headerLinkClick();
+    setTimeout(function(){
+      init.addHeaderMessage();
+    }, 500);
+  }
 });
