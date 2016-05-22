@@ -11,6 +11,10 @@ var init = (function(){
     });
   }
 
+  function priorityVoteClick(){
+    $('.priority-tabs div').on('click', votePriority);
+  }
+
   var currentIndex = 0;
   var messageText = ["doing good", "doing bad", "robing you"];
   var timeoutId;
@@ -139,4 +143,5 @@ $(document).on('ready', function(){
   } else if ($('#initiative-information').length > 0){
     initiatives.init();
   }
+  init.priorityVoteClick();
 });
