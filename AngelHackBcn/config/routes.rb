@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   get '/initiatives' => 'initiatives#users_index'
   post '/initiatives/:id/vote_priority' => 'priorities#create'
-  post '/initiatives/:id/vote_status' => 'initiative_statuses#create'
+  post '/initiatives/:initiative_id/vote_status' => 'initiative_statuses#create'
 end

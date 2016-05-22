@@ -1,5 +1,7 @@
 class PrioritiesController < ApplicationController
-  
+  def create
+    
+  end
 
   private
   def initiative_params
