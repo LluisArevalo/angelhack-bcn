@@ -95,11 +95,15 @@
     .initiative-ctr-content>p {
       margin-left: 20px;
       margin-right: 20px;
-      margin-bottom: 20px;
-      margin-top: 0;
+      min-height: 50px;
+      max-height: 50px;
+      margin-top: 10px;
       color: grey;
       font-size: 14px;
       line-height: 1.8em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
     .initiative-info{
       position: absolute;
@@ -119,7 +123,7 @@
     }
     .topic {
       position: absolute;
-      top: -37px;
+      top: -34px;
       left: 0;
       background: #E83F6F;
       padding: 10px 15px;
@@ -134,7 +138,69 @@
     .green{
       background-color: #44AF69;
     }
+    .general-priority{
+      color: #44AF69;
+      margin-left: 20px;
+    }
+    .general-priority>div{
+      text-align: center;
+      bottom: 0;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      width: 100%
+    }
+    .general-priority>div{
+      color: #44AF69;
+      background: transparent ;
+      border: 3px solid #44AF69;
+      border-radius: 5px;
+      padding: 10px;
+      width: 20%;
+      cursor: pointer;
+      font-size: 1em;
 
+    }
+    footer{
+      background-color: #333;
+      color: white;
+    }
+    .footer-container{
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .footer-container>div{
+      width: 28%;
+      float: left;
+      padding: 2%;
+      text-align: justify;
+    }
+    .footer-container>div>h3{
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer-container>div>.social-media{
+      text-align: center;
+      margin-top: 20px;
+    }
+    .footer-container>div>.social-media>li{
+      display: inline-block;
+      padding: 10px;
+    }
+    .footer-container>div>.social-media>li>span:hover{
+      color: #E83F6F;
+      cursor: pointer;
+    }
+    .footer-container>div>.website-links>li{
+      list-style: none;
+      margin-bottom: 5px;
+    }
+    .footer-container>div>.website-links>li>a{
+      text-decoration: none;
+      color: #E83F6F;
+      cursor: pointer;
+    }
 </style>
 <header>
   <div class="header-container">
@@ -151,17 +217,40 @@
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg">
         </div>
         <div class="initiative-ctr-content">
-          <span class="topic">health</span>
+          <span class="topic"><%= initiative.topic.description %></span>
           <h4><%= initiative.title %></h4>
           <p><%= initiative.content %></p>
           <div class="initiative-info red">
-
             <span class="fa fa-remove fa-2x"></span>
           </div>
+          <span class="general-priority"><div>HIGH</div></span>
+
         </div>
       </article>
   <% end %>
 </section>
 <footer>
-  Footer
+  <section class="footer-container">
+    <div>
+      <h3>LOGO</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi qui cum, animi voluptate, accusamus expedita reiciendis ab nostrum, ducimus odio officiis esse est. Quaerat nisi perferendis, vero consequatur, nemo sed.</p>
+    </div>
+    <div>
+      <ul class="website-links">
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">We are hiring!</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="social-media">
+        <p>Follow us in</p>
+        <li><span class="fa fa-twitter fa-2x"></span></li>
+        <li><span class="fa fa-facebook fa-2x"></span></li>
+        <li><span class="fa fa-linkedin fa-2x"></span></li>
+        <li><span class="fa fa-github fa-2x"></span></li>
+      </ul>
+    </div>
+  </section>
 </footer>
