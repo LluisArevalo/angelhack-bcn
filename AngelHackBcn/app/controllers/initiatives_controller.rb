@@ -27,7 +27,6 @@ class InitiativesController < ApplicationController
 
   def update
     initiative = Initiative.find params[:id]
-    binding.pry
     initiative.update_attributes initiative_params
     initiative.region.update_attribute :area, params[:area]
 

@@ -1,5 +1,6 @@
 class Initiative < ActiveRecord::Base
   has_attached_file :image
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   belongs_to :topic
   belongs_to :region
   belongs_to :priority_assignment
@@ -16,5 +17,10 @@ class Initiative < ActiveRecord::Base
 
   def has_image?
     image.url != "/images/original/missing.png"
+  end
+
+  def get_citizens_priority
+    priority_id = PriorityAssignation.set_priority params[:initiative_id]
+    @priority = Priority.find priority_id
   end
 end
