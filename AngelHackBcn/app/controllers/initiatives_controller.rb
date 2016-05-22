@@ -9,6 +9,8 @@ class InitiativesController < ApplicationController
   def show
     @initiative = Initiative.find params[:id]
     @user_id = current_user.id if current_user
+    @solved = @initiative.done?
+    @priority = @initiative.get_citizens_priority
   end
 
   def new

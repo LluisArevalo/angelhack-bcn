@@ -143,5 +143,4 @@ $(document).on('ready', function(){
   } else if ($('#initiative-information').length > 0){
     initiatives.init();
   }
-  init.priorityVoteClick();
 });
