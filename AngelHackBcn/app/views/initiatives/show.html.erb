@@ -1,18 +1,25 @@
+<%= render "layouts/header" %>
 <section id="initiative-information" class="initiative">
-  <article>
-    <h2><%= @initiative.title %></h2>
-    <%= image_tag(@initiative.image.url) if @initiative.has_image? %>
-    
-    <div class="content"><%= @initiative.content %></div>
-    <div class="js-priority-tabs">
-      <div data-priority-id="1">High</div>
-      <div data-priority-id="2">Medium</div>
-      <div data-priority-id="3">Low</div>
+  <article class="initiative-container full-view">
+    <div class="initiative-ctr-thumbnail">
+      <%= image_tag(@initiative.image.url) if @initiative.has_image? %>
     </div>
-    <div class="js-status-tabs">
-      <div data-status="yes">Done</div>
-      <div data-status="no">Undone</div>
+    <div class="initiative-ctr-content">
+      <h4><%= @initiative.title %></h4>
+
+
+      <div class="content"><%= @initiative.content %></div>
+      <div class="js-priority-tabs">
+        <div data-priority-id="1">High</div>
+        <div data-priority-id="2">Medium</div>
+        <div data-priority-id="3">Low</div>
+      </div>
+      <div class="js-status-tabs">
+        <div data-status="yes"><div class="green initiative-info-vote"><span class="fa fa-check fa-2x"></span></div></div>
+        <div data-status="no"><div class="red initiative-info-vote"><span class="fa fa-remove fa-2x"></span></div></div>
+      </div>
     </div>
+
   </article>
 </section>
 
