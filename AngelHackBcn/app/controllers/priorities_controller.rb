@@ -8,9 +8,6 @@ class PrioritiesController < ApplicationController
                             user_id: params[:user_id]
                           )
     if priority_assignation.save
-      priority = PriorityAssignation.set_priority params[:initiative_id]
-      initiative = Initiative.find params[:initiative_id]
-      # initiative.update_attribute(:priority_id, priority)
       render(status: 200, :nothing => true)
     else
       render(status: 500, :nothing => true)
