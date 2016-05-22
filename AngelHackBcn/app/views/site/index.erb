@@ -1,9 +1,18 @@
 <section id="home-page">
   <header class="picture">
     <div class="cover">
-      <a href="/users/sign_in" class="login">
-        <i class="fa fa-user" aria-hidden="true"></i>Login
-      </a>
+      <% if !current_user %>
+        <a href="/users/sign_in" class="login">
+          <i class="fa fa-user" aria-hidden="true"></i>Login
+        </a>
+      <% else %>
+        <div class="login">
+          <i class="fa fa-user" aria-hidden="true"></i><%= current_user.email %>
+        </div>
+        <a href="/initiatives" class="login logged">
+          Initiatives
+        </a>
+      <% end %>
       <h1>Your politicians are <div class="what-doing js-what-doing"></div></h1>
       <a href="#more-info" class="go-down"><%= image_tag 'arrow-down' %></a>
     </div>
@@ -14,29 +23,22 @@
         <div class="icon left"><%= image_tag('access') %></div>
         <div class="description first">
           <h2>Stay tuned</h2>
-          <p>Learn easily about public policies applied in your community, city or country. Keep track of the promises you heard before elections and be objectively informed. Get real statistics about public opinion and social impact. </p>
+          <p>Learn easily about public policies applied in your community, city or country. Keep track of the promises you heard before elections and be objectively informed. Get real statistics about public opinion and social impact. Know how policymakers, stakeholders, and policy analysts influence public policy decisions. Learn why a well-informed and neutral analysis of existing and potential public policies is important for optimal societal outcomes. </p>
         </div>
       </article>
       <article class="info">
         <div class="description">
           <h2>Give your opinion</h2>
-          <p>Be an active citizen and get involved. Let us know your opinion about election programs and government measures. Start a debate in a neutral environment. Express yourself and set your priorities.</p>
+          <p>Be an active citizen and get involved. Let us know your opinion about election programs and government measures. Start a debate in a neutral environment. Express yourself and set your priorities. Participate in public affairs and be a part of our community. Have a voice towards decisions that affect your community and yourself. Prepare yourself to be heard.</p>
         </div>
         <div class="icon right"><%= image_tag('opinion') %></div>
       </article>
       <div class="clearfix"></div>
-      <div class="button-container">
-        <a class="button">Sign Up</a>
-      </div>
+      <% if !current_user %>
+        <div class="button-container">
+          <a class="button" href="/users/sign_up">Sign Up</a>
+        </div>
+      <% end %>
     </div>
   </section>
-  <!-- <section class="content bottom-section">
-    <div class="container">
-      <h2>Cities we are working on</h2>
-      <div class="col-sm-4">Col1</div>
-      <div class="col-sm-4 middle">Col2</div>
-      <div class="col-sm-4">Col3</div>
-      <div class="clearfix"></div>
-    </div>
-  </section> -->
 </section>

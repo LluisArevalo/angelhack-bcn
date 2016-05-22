@@ -1,7 +1,9 @@
 <header class="main-header">
   <div class="header-container">
     <a href="/" class="logo"><p ><span class=" fa fa-check-circle"></span> Issues</p></a>
-    <span class="user">USER</span>
+    <div class="login">
+      <i class="fa fa-user" aria-hidden="true"></i><%= current_user.email %>
+    </div>
   </div>
 
 </header>

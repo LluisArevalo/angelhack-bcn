@@ -11,11 +11,24 @@
             <span class="topic"><%= initiative.topic.description %></span>
             <h4><%= initiative.title %></h4>
             <p><%= initiative.content %></p>
-            <div class="initiative-info red">
-              <span class="fa fa-remove fa-2x"></span>
-            </div>
+            <% if initiative.done? == [] %>
+              <div class="initiative-info grey">
+                <span class="fa fa-question fa-2x"></span>
+              </div>
+            <% elsif initiative.done? %>
+              <div class="initiative-info green">
+                <span class="fa fa-check fa-2x"></span>
+              </div>
+            <% else %>
+              <div class="initiative-info red">
+                <span class="fa fa-remove fa-2x"></span>
+              </div>
+            <% end %>
+            
             <article class="footer-ctr">
-              <div class="general-priority"><div>HIGH</div></div>
+              <% initiative.get_citizens_priority.each do |priority_id| %>
+                <div data-id="<%= priority_id %>" class="general-priority"><div><%= Priority.find(priority_id).level %></div></div>
+              <% end %>
               <div class="area"><div><%= initiative.region.area %></div></div>
             </article>
           </div>
