@@ -24,10 +24,10 @@
                 <span class="fa fa-remove fa-2x"></span>
               </div>
             <% end %>
-            
+
             <article class="footer-ctr">
               <% initiative.get_citizens_priority.each do |priority_id| %>
-                <div data-id="<%= priority_id %>" class="general-priority"><div><%= Priority.find(priority_id).level %></div></div>
+                <div data-id="<%= priority_id %>" class="general-priority  "><div  class="border-green"><%= Priority.find(priority_id).level %></div></div>
               <% end %>
               <div class="area"><div><%= initiative.region.area %></div></div>
             </article>
