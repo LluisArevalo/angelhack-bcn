@@ -13,6 +13,37 @@
 
 ActiveRecord::Schema.define(version: 20160522081156) do
 
+  create_table "action_comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "action_id"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "action_comments", ["action_id"], name: "index_action_comments_on_action_id"
+  add_index "action_comments", ["user_id"], name: "index_action_comments_on_user_id"
+
+  create_table "action_statuses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "action_id"
+    t.boolean  "solved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "action_statuses", ["action_id"], name: "index_action_statuses_on_action_id"
+  add_index "action_statuses", ["user_id"], name: "index_action_statuses_on_user_id"
+
+  create_table "actions", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "initiative_comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "initiative_id"

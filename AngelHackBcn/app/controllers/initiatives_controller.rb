@@ -1,4 +1,5 @@
 class InitiativesController < ApplicationController
+  layout 'public'
   def index
     @initiatives = Initiative.all
   end
