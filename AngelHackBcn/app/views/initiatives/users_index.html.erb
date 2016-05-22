@@ -1,16 +1,7 @@
-<style>
-
-</style>
-<header class="main-header">
-  <div class="header-container">
-    <span class="logo">LOGO</span>
-    <span class="user">USER</span>
-  </div>
-
-</header>
+<%= render "layouts/header" %>
 <section class="initiatives-container">
 
-<% @initiatives.each do |initiative| %>
+  <% @initiatives.each do |initiative| %>
       <article class="initiative-container">
         <div class="initiative-ctr-thumbnail">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg">
