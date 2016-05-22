@@ -1,0 +1,2 @@
+module PriorityAssignationsHelper
+end
