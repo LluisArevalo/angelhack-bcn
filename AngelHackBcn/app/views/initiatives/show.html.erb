@@ -1,0 +1,6 @@
+<div>
+  <h2><%= @initiative.title %></h2>
+  <%= image_tag(@initiative.image.url) if @initiative.has_image? %>
+  
+  <p><%= @initiative.content %></p>
+</div>

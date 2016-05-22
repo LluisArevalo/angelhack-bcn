@@ -13,4 +13,8 @@ class Initiative < ActiveRecord::Base
   def actual_region
     self.region ?  self.region.ambit : " "
   end
+
+  def has_image?
+    image.url != "/images/original/missing.png"
+  end
 end

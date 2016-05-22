@@ -1,6 +1,7 @@
-<%= form_for @initiative do |f| %>
+<%= form_for @initiative, html: { multipart: true } do |f| %>
   <%= f.text_field :title %>
   <%= f.text_field :content %>
+  <%= f.file_field :image %>
 
   <%= collection_select(:initiative, :topic_id, Topic.all, :id, :description, {:prompt => @initiative.actual_topic, :disabled => @initiative.actual_topic}) %>
 

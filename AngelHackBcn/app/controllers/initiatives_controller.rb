@@ -3,6 +3,10 @@ class InitiativesController < ApplicationController
     @initiatives = Initiative.all
   end
 
+  def show
+    @initiative = Initiative.find params[:id]
+  end
+
   def new
     @initiative = Initiative.new
   end
@@ -22,6 +26,7 @@ class InitiativesController < ApplicationController
 
   def update
     initiative = Initiative.find params[:id]
+    binding.pry
     initiative.update_attributes initiative_params
     initiative.region.update_attribute :area, params[:area]
 
@@ -40,6 +45,6 @@ class InitiativesController < ApplicationController
 
   private
   def initiative_params
-    params.require(:initiative).permit(:title, :content, :topic_id, :region_id)
+    params.require(:initiative).permit(:title, :content, :image, :topic_id, :region_id)
   end
 end
