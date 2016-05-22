@@ -1,72 +1,20 @@
-<style type="text/css">
-  .initiative {
-    margin: 40px auto;
-    max-width: 900px;
-    width: 100%;
-  }
-
-  .initiative h2 {
-    font-size: 30px;
-  }
-
-  .initiative .content {
-    border: 1px solid #eee;
-    padding: 20px 10px;
-  }
-
-  .priority-tabs .high,
-  .priority-tabs .medium,
-  .priority-tabs .low {
-    border: 1px solid #eee;
-    border-top: 0;
-    color: #aaa;
-    float: left;
-    padding: 6px 20px;
-  }
-
-  .priority-tabs .high {
-    border-bottom-left-radius: 6px;
-  }
-
-  .priority-tabs .medium {
-    border-left: 0;
-    border-right: 0;
-  }
-
-  .priority-tabs .low {
-    border-bottom-right-radius: 6px;
-  }
-
-  .priority-tabs .high.active,
-  .priority-tabs .medium.active,
-  .priority-tabs .low.active {
-    color: #fff;
-  }
-
-  .priority-tabs .high.active {
-    background: linear-gradient(45deg, #ff403c, #FF8F00);
-  }
-
-  .priority-tabs .medium.active {
-    background: linear-gradient(45deg, #FF8F00, #fc0);
-  }
-
-  .priority-tabs .low.active {
-    background: linear-gradient(45deg, #00CC3C, #00963C);
-  }
-</style>
-
-<section class="initiative">
+<section id="initiative-information" class="initiative">
   <article>
     <h2><%= @initiative.title %></h2>
     <%= image_tag(@initiative.image.url) if @initiative.has_image? %>
     
     <div class="content"><%= @initiative.content %></div>
-    <div class="priority-tabs">
-      <div class="high active">High</div>
-      <div class="medium active">Medium</div>
-      <div class="low active">Low</div>
-      <div class="clearfix"></div>
+    <div class="js-priority-tabs">
+      <div data-priority-id="1">High</div>
+      <div data-priority-id="2">Medium</div>
+      <div data-priority-id="3">Low</div>
+    </div>
+    <div class="js-priority-tabs">
+      <div data-status="yes">Done</div>
+      <div data-status="no">Undone</div>
     </div>
   </article>
 </section>
+
+<input id="js-user-id" type="hidden" value="<%= @user_id %>">
+<input id="js-initiative-id" type="hidden" value="<%= @initiative.id %>">
