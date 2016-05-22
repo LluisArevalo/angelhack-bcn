@@ -69,42 +69,62 @@ var initiatives = (function(){
   var url = '/initiatives/';
   var urlPriority = '/vote_priority';
   var urlStatus = '/vote_status';
+  var activeClass = "active";
 
-  var votePriority = function(){
+  var init = function(){
+    var initiativeId = $('#js-initiative-id').val();
+    var userId = $('#js-user-id').val();
+
+    $('.js-priority-tabs').find('div').on('click', function(){
+      var priorityId = $(this).data('priority-id');
+      votePriority(initiativeId, priorityId, userId);
+    });
+
+    $('.js-status-tabs').find('div').on('click', function(){
+      var statusId = $(this).data('status') == 'yes';
+      voteStatus(initiativeId, userId, statusId);
+    });
+  }
+
+  var votePriority = function(initiativeId, priorityId, userId){
     $.ajax({
-      url: url + '3' + urlPriority,
+      url: url + initiativeId + urlPriority,
       method: 'POST',
       data: {
-        'user_id' : '6',
-        'priority_id' : '1'
+        'user_id' : userId,
+        'priority_id' : priorityId
       },
       success: function(){
-        console.log('oh yeah!');
+        $('.js-priority-tabs').find('div').removeClass(activeClass);
+        $('.js-priority-tabs').find('*[data-priority-id="' + priorityId + '"]').addClass(activeClass);
       },
       error: function(){
-        console.log('moooc, errooooor');
+        console.log('Error voting the priority of the Initiative');
       }
     });
   }
 
-  var voteStatus = function(){
+  var voteStatus = function(initiativeId, userId, solved){
     $.ajax({
-      url: url + '3' + urlStatus,
+      url: url + initiativeId + urlStatus,
       method: 'POST',
       data: {
-        'user_id' : '6',
-        'solved' : true
+        'user_id' : userId,
+        'solved' : solved
       },
       success: function(){
-        console.log('suuuuuuuuu');
+        var solvedStatus = solved ? "yes" : "no";
+        $('.js-status-tabs').find('div').removeClass(activeClass);
+        $('.js-status-tabs').find('[data-status="' + solvedStatus + '"]').addClass(activeClass);
       },
       error: function(){
-        console.log('ja jaaaaaa');
+        console.log('Error voting the status of the Initiative');
       }
     });
   }
 
   return {
+    'init' : init,
     'votePriority' : votePriority,
     'voteStatus' : voteStatus
   }
@@ -116,5 +136,7 @@ $(document).on('ready', function(){
     setTimeout(function(){
       init.addHeaderMessage();
     }, 500);
+  } else if ($('#initiative-information').length > 0){
+    initiatives.init();
   }
 });
