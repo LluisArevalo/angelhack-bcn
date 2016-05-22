@@ -74,6 +74,10 @@ var initiatives = (function(){
     $.ajax({
       url: url + '3' + urlPriority,
       method: 'POST',
+      data: {
+        'user_id' : '6',
+        'priority_id' : '1'
+      },
       success: function(){
         console.log('oh yeah!');
       },

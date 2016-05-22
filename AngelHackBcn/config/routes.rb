@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   get '/initiatives' => 'initiatives#users_index'
-  post '/initiatives/:id/vote_priority' => 'priorities#create'
+  post '/initiatives/:initiative_id/vote_priority' => 'priorities#create'
   post '/initiatives/:initiative_id/vote_status' => 'initiative_statuses#create'
 end
