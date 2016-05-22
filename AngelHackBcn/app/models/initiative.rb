@@ -19,8 +19,11 @@ class Initiative < ActiveRecord::Base
     image.url != "/images/original/missing.png"
   end
 
+  def done?
+    InitiativeStatus.check_solved(self.id)
+  end
+
   def get_citizens_priority
-    priority_id = PriorityAssignation.set_priority params[:initiative_id]
-    @priority = Priority.find priority_id
+    PriorityAssignation.set_priority self.id
   end
 end

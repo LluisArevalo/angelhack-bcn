@@ -11,6 +11,10 @@ var init = (function(){
     });
   }
 
+  function priorityVoteClick(){
+    $('.priority-tabs div').on('click', votePriority);
+  }
+
   var currentIndex = 0;
   var messageText = ["doing good", "doing bad", "robing you"];
   var timeoutId;
@@ -69,10 +73,11 @@ var initiatives = (function(){
   var url = '/initiatives/';
   var urlPriority = '/vote_priority';
   var urlStatus = '/vote_status';
+  var initiative_id = window.location.pathname.split('/')[2]
 
   var votePriority = function(){
     $.ajax({
-      url: url + '3' + urlPriority,
+      url: url + initiative_id + urlPriority,
       method: 'POST',
       data: {
         'user_id' : '6',
@@ -117,4 +122,5 @@ $(document).on('ready', function(){
       init.addHeaderMessage();
     }, 500);
   }
+  init.priorityVoteClick();
 });
