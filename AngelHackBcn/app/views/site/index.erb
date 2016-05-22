@@ -1,9 +1,18 @@
 <section id="home-page">
   <header class="picture">
     <div class="cover">
-      <a href="/users/sign_in" class="login">
-        <i class="fa fa-user" aria-hidden="true"></i>Login
-      </a>
+      <% if !current_user %>
+        <a href="/users/sign_in" class="login">
+          <i class="fa fa-user" aria-hidden="true"></i>Login
+        </a>
+      <% else %>
+        <div class="login">
+          <i class="fa fa-user" aria-hidden="true"></i><%= current_user.email %>
+        </div>
+        <a href="/initiatives" class="login logged">
+          Initiatives
+        </a>
+      <% end %>
       <h1>Your politicians are <div class="what-doing js-what-doing"></div></h1>
       <a href="#more-info" class="go-down"><%= image_tag 'arrow-down' %></a>
     </div>
@@ -25,18 +34,11 @@
         <div class="icon right"><%= image_tag('opinion') %></div>
       </article>
       <div class="clearfix"></div>
-      <div class="button-container">
-        <a class="button">Sign Up</a>
-      </div>
+      <% if !current_user %>
+        <div class="button-container">
+          <a class="button" href="/users/sign_up">Sign Up</a>
+        </div>
+      <% end %>
     </div>
   </section>
-  <!-- <section class="content bottom-section">
-    <div class="container">
-      <h2>Cities we are working on</h2>
-      <div class="col-sm-4">Col1</div>
-      <div class="col-sm-4 middle">Col2</div>
-      <div class="col-sm-4">Col3</div>
-      <div class="clearfix"></div>
-    </div>
-  </section> -->
 </section>

@@ -52,12 +52,18 @@ body {
     position: absolute;
     right: 25px;
     text-decoration: none;
-    top: 25px;
+    top: 39px;
 
     i {
       margin-right: 10px;
     }
 
+    &.logged {
+      right: 250px;
+    }
+  }
+
+  a.login {
     &:hover {
       @extend %transition;
       color: $color-secondary;
@@ -79,6 +85,7 @@ body {
       font-weight: 300;
       margin: 0 auto;
       padding: 10px 45px;
+      text-decoration: none;
       text-transform: uppercase;
 
       &:hover {
@@ -198,7 +205,7 @@ body {
   }
   .header-container{
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     overflow: hidden;
     .logo{
       float: left;
@@ -206,7 +213,7 @@ body {
       color: white;
       text-decoration: none;
       cursor: pointer;
-      font-family: 'Oleo Script Swash Caps';
+      font-family: $font-family-secondary;
     }
     .user{
       float: right;
@@ -395,12 +402,21 @@ body {
         float: left;
         padding: 2%;
         text-align: justify;
+
+        &.issues-topic {
+          p {
+            font-size: 13px;
+            line-height: 22px;
+          }
+        }
+
         h3{
           font-weight: 400;
           font-size: 32px;
           margin-bottom: 10px;
           font-family: $font-family-secondary;
         }
+
         .social-media{
           text-align: center;
           margin-top: 20px;
@@ -413,6 +429,7 @@ body {
             }
           }
         }
+
         .website-links>li{
           list-style: none;
           margin-bottom: 5px;
@@ -427,6 +444,12 @@ body {
 }
 
 @media screen and (max-width: 720px) {
+  body {
+    h1 {
+      font-size: 60px;
+    }
+  }
+
   .initiative-container {
     width: 90% !important;
     margin-right: 0 !important;
